@@ -3,7 +3,7 @@ version: '3.3'
 
 services:
   install_dependencies:
-    image: ${PHP_IMAGE}-dev
+    image: ${PHP_IMAGE_DEV}
     volumes:
      - ${COMPOSE_DIR}/../..:/var/www:cached
      - ${COMPOSER_HOME}:/root/.composer:cached
@@ -12,6 +12,7 @@ services:
      - APP_ENV=${APP_ENV-prod}
      - APP_DEBUG
      - APP_CMD
+     - DATABASE_VERSION
      - DATABASE_USER
      - DATABASE_PASSWORD
      - DATABASE_NAME
